@@ -9,7 +9,7 @@ updatedDate:    2021-11-04
 tags:           []
 ---
 
-New feature to designate product inventory across multiple locations.
+New feature to allow tracking of product inventory across multiple locations.
 
 ## New Product Resource: `InventoryRecord`
 ```json
@@ -39,12 +39,12 @@ New feature to designate product inventory across multiple locations.
 	"xp": {}
 }
 ```
-The `InventoryRecord` resource exists only in the context of a given Product, and can be extended for Product Variants. The use of Inventory Records will result in the existing `Product.Inventory.QuantityAvailable` property for the given Product becoming read only and will reflect the sum of all `InventoryRecord.QuantityAvailable`. 
+The `InventoryRecord` resource exists only in the context of a given Product, and can be extended for Product Variants. If any Inventory Records exist for a product, `Product.Inventory.QuantityAvailable` becomes read-only and will reflect the sum of all `InventoryRecord.QuantityAvailable`. 
 - The ID property is writable and follows the same convention as all other [writable IDs](https://ordercloud.io/learn/ordercloud-basics/conventions#writeable-ids) in OrderCloud. 
 - The `OwnerID` property is writable only by the Marketplace Owner. Otherwise this ID reflects the Supplier that created the Inventory Record.
 - The `Product.Inventory` object will remain on the Product resource, even if Inventory Records are associated with the given Product. 
 - Address is a read only object derived from the AddressID given. 
-    - The Address used to create an Inventory Record must be owned by the OwnerID. 
+- The Address used to create an Inventory Record must be owned by the OwnerID. 
 
 
 ## New Endpoints
@@ -65,6 +65,6 @@ The `InventoryRecord` resource exists only in the context of a given Product, an
 
 ## New Properties
 `LineItem.InventoryRecordID`  
-- Only writable prior to submitting an order
-- References the Inventory Record fulfilling the Product of the Line Item.
+- Only writable prior to submitting an order.
+- References the Inventory Record that will be decremented on submit.
 - If using Inventory Records for a given Product, you must provide an InventoryRecordID on the Line Item in order to track inventory. If any Inventory Records exist for a Product of a Line Item where `InventoryRecordID` is null, no inventory will be decrement on order submit. 
