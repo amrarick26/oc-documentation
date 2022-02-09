@@ -1,0 +1,21 @@
+---
+type:           article
+title:          Saved Products
+description:    Overview of new feature to allow saving a product under the authenticated buyer user.
+author:         asnyder
+publishDate:    2022-01-04
+updatedDate:    2022-01-04
+tags:           ["Concepts", "Products", "Wishlist"]
+---
+
+New feature to allow saving a product under the authenticated buyer user. This feature is commonly referred to as "Favorite Products" or "Wishlist".
+- Use of this feature is restricted to buyer users.
+- A maximum of 500 products can be saved per user.
+- Products returned via GET v1/me/savedproducts are still subject to [visibility requirements](https://ordercloud.io/knowledge-base/product-visibility).
+
+## New Endpoints 
+
+Products
+- `GET v1/me/savedproducts`
+- `POST v1/me/savedproducts/{productID}`
+- `DELETE v1/me/savedproducts/{productID}`

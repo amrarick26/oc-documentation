@@ -48,5 +48,10 @@
         "id": "dsteinmetz",
         "name": "DJ Steinmetz",
         "title": "Senior Developer"
+    },
+    {
+        "id": "asnyder",
+        "name": "Alexa Snyder",
+        "title": "Senior Developer"
     }
 ]
