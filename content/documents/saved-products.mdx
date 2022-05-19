@@ -1,17 +1,26 @@
 ---
 type:           article
 title:          Product Collections
-description:    Overview of new feature to allow creating product collections and saving products to those collections.
+description:    Overview of new feature to allow creating Product Collections and saving products to those collections.
 author:         asnyder
 publishDate:    2022-05-23
 updatedDate:    2022-05-23
 tags:           ["Concepts", "Products", "Wishlist"]
 ---
 
-New feature to allow creating product collections and saving products to those collections. This feature provides the ability for users to create one or multiple collections of favorite or "wish list" products.
+New feature to allow creating Product Collections and saving products to those collections. This feature provides the ability for users to create one or multiple Product Collections of favorite or "wish list" products.
 - Use of this feature is restricted to buyer users.
-- A maximum of 500 products can be saved per collection.
-- Products returned via GET v1/me/savedproducts are still subject to [visibility requirements](https://ordercloud.io/knowledge-base/product-visibility).
+- A maximum of 500 products can be saved per Product Collection.
+- Products returned via `GET v1/me/productcollections/{productCollectionID}/products` are still subject to [visibility requirements](https://ordercloud.io/knowledge-base/product-visibility).
+
+## New Resource `ProductCollection`
+```json
+{
+    "ID": "MyFavoriteProducts",
+    "Name": "My Favorite Products",
+    "xp": {}
+}
+```
 
 ## New Endpoints 
 
