@@ -8,10 +8,7 @@ updatedDate:    2022-05-23
 tags:           ["Concepts", "Products", "Wishlist"]
 ---
 
-New feature to allow creating Product Collections and saving products to those collections. This feature provides the ability for users to create one or multiple Product Collections of favorite or "wish list" products.
-- Use of this feature is restricted to buyer users.
-- A maximum of 500 products can be added to a Product Collection.
-- Products returned via `GET v1/me/productcollections/{productCollectionID}/products` are still subject to [visibility requirements](https://ordercloud.io/knowledge-base/product-visibility).
+New feature to allow creating Product Collections and adding products to those collections. This feature provides the ability for users to create one or multiple Product Collections of favorite or "wish list" products.
 
 ## New Resource `ProductCollection`
 ```json
@@ -22,20 +19,21 @@ New feature to allow creating Product Collections and saving products to those c
 }
 ```
 
-## New Endpoints 
-
-Product Collections
+**Endpoints:** 
 - `GET v1/me/productcollections`
 - `GET v1/me/productcollections/{productCollectionID}`
 - `POST v1/me/productcollections`
 - `PATCH v1/me/productcollections/{productCollectionID}`
 - `PUT v1/me/productcollections/{productCollectionID}`
 - `DELETE v1/me/productcollections/{productCollectionID}`
-
-Managing Products in a Product Collection
 - `GET v1/me/productcollections/{productCollectionID}/products`
-*Returns all products saved in the given Product Collection currently visible to the authenticated user.*
+    - Returns all products saved in the given Product Collection currently visible to the authenticated user.
 - `PUT v1/me/productcollections/{productCollectionID}/{productID}`
-*Adds a product to a given Product Collection.*
+    - Adds a product to a given Product Collection.
 - `DELETE v1/me/productcollections/{productCollectionID}/{productID}`
-*Removes a product to a given Product Collection.*
+    - Removes a product to a given Product Collection.
+
+**Notes:**
+- Use of this feature is restricted to buyer users.
+- A maximum of 500 products can be added to a Product Collection.
+- Products returned via `GET v1/me/productcollections/{productCollectionID}/products` are still subject to [visibility requirements](https://ordercloud.io/knowledge-base/product-visibility).
